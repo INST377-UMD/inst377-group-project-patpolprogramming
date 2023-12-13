@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COVID-19 Tracking Interface</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  header nav ul {
+    list-style-type: none;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+  }
+
+  header nav ul li {
+    display: inline;
+  }
+
+  header nav ul li a {
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+  }
+
+  header nav ul li a.active, header nav ul li a:hover {
+    background-color: #ddd;
+  }
+
+  .welcome {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffeb3b;
+  }
+
+  .welcome h1 {
+    margin-bottom: 20px;
+  }
+
+  .welcome button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+  }
+
+  .welcome img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home Page</a></li>
+            <li><a href="about.html">About Page</a></li>
+            <li><a href="search.html">Search Data</a></li>
+            <li><a href="help.html">Help Page</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="welcome">
+        <h1>Welcome to the COVID-19 Tracking Interface</h1>
+        <button onclick="location.href='search.html'">Begin</button>
+        <img src="https://drexel.edu/news/~/media/Drexel/Core-Site-Group/News/Images/COVID19image/covid19image_16x9.ashx" alt="COVID-19 Image">
+    </section>
+</main>
+</body>
+</html>
