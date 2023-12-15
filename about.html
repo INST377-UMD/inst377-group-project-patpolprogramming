@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abot</title>
+    <title>about</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         nav {
@@ -33,12 +36,31 @@
         .container {
             background-color: yellow;
             text-align: center;
-            padding: 50px;
-            margin-top: 50px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .container h2 {
+            font-size: 2em; /* Double the font size */
+            text-decoration: underline; /* Add underline */
         }
 
         .content {
             margin: 20px;
+        }
+
+        .container img {
+            width: 100%; /* Make the image fill the container width */
+            max-width: 500px; /* Limit the maximum width of the image */
+            margin-top: 20px; /* Add some space between text and image */
+        }
+
+        .bottom-container {
+            margin: 20px;
+        }
+
+        .bottom-container .content p {
+            font-size: 1.5em; /* Increase the font size */
         }
     </style>
 </head>
@@ -52,11 +74,35 @@
 </nav>
 
 <div class="container">
-    <h2>About Us</h2>
+    <h2>ABOUT US</h2>
+    <img src="umd.png" alt="University of Maryland Logo">
 </div>
 
-<div class="content">
-    <p>INST377</p>
+<div class="bottom-container">
+    <div class="content">
+        <p>Welcome to our INST377 group final project! Throughout this semester, 
+            team members - Andrew Liu, Milan Thapa, and Patrick Polglase, learned the 
+            necessary techniques to bring this project to fruition. For this project, we 
+            decided to create an interface that allows users to search through data 
+            regarding COVID-19. The interface would then be able to search through an 
+            API and return results relating to the spread of COVID through communities. 
+            The results of the search vary from which regions were affected to 
+            calculating the number of infected individuals. Our proposed systems would 
+            solve the information problem by providing an intuitive interface for users 
+            to search data regarding the spread of COVID-19. Easily-sourced and readily 
+            available data regarding COVID-19 might be currently difficult to encounter 
+            for the common user. Our system would allow that data to be compiled and 
+            easily accessible through consulting an API and building a user interface 
+            that is comfortable for most users.
+        </p>
+
+        <p>In order to obtain our data we used the API: https://covidtracking.com/data/api/version-2/ .
+            The API provides users with data ranging from historic US COVID-19 values, 
+            single day values, individual state/territory values, and more. For this project, 
+            we have extracted data from this API in order to give users information 
+            regarding the spread of the virus in specific locations across the US.
+        </p>
+    </div>
 </div>
 
 </body>
