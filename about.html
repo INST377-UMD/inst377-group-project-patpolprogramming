@@ -1,85 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>about</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COVID-19 Tracking Interface</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-        nav {
-            background-color: #333;
-            overflow: hidden;
-        }
+.welcome {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 50px;
+  background-color: #ffeb3b;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  transition: background-color 0.3s;
+}
 
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+header {
+  flex-shrink: 0;
+}
 
-        .container {
-            background-color: yellow;
-            text-align: center;
-            padding: 10px;
-            margin-top: 10px;
-        }
+main {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+}
 
-        .container h2 {
-            font-size: 2em; 
-            text-decoration: underline; 
-        }
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #004c93;
+  text-align: center;
+  box-shadow: 0 2px 4px #00000050;
+}
 
-        .content {
-            margin: 20px;
-        }
+header nav ul li {
+  display: inline;
+}
 
-        .container img {
-            width: 100%; 
-            max-width: 500px; 
-            margin-top: 20px; 
-        }
+header nav ul li a {
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
 
-        .bottom-container {
-            margin: 20px;
-        }
+header nav ul li a.active, header nav ul li a:hover {
+  color: #ade2fb;
+}
 
-        .bottom-container .content p {
-            font-size: 1.5em; 
-        }
-    </style>
+.welcome {
+  text-align: center;
+  padding: 50px;
+  background-color: #ffeb3b;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  transition: background-color 0.3s;
+}
+
+.welcome h1 {
+  color: #0056b3;
+  text-shadow: 2px 2px 4px #00000050;
+}
+
+.welcome img {
+  max-width: 40%;
+  
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #00000050;
+}
+
+p {
+font-size: 18px;
+}
+
+</style>
 </head>
 <body>
-
-<nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="data.html">Data</a>
-    <a href="help.html">Help</a>
-</nav>
-
-<div class="container">
-    <h2>ABOUT US</h2>
-    <img src="umd.png" alt="University of Maryland Logo">
-</div>
-
-<div class="bottom-container">
-    <div class="content">
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="about.html" class="active">About Page</a></li>
+            <li><a href="search.html">Search Data</a></li>
+            <li><a href="help.html">Help Page</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <<section class="welcome">
+        <h1>About Our Team</h1>
+        <img src="umd.png" alt="UMD Logo">
+        
         <p>Welcome to our INST377 group final project! Throughout this semester, 
             team members - Andrew Liu, Milan Thapa, and Patrick Polglase, learned the 
             necessary techniques to bring this project to fruition. For this project, we 
@@ -93,17 +125,14 @@
             available data regarding COVID-19 might be currently difficult to encounter 
             for the common user. Our system would allow that data to be compiled and 
             easily accessible through consulting an API and building a user interface 
-            that is comfortable for most users.
-        </p>
-
-        <p>In order to obtain our data we used the API: https://covidtracking.com/data/api/version-2/ .
-            The API provides users with data ranging from historic US COVID-19 values, 
+            that is comfortable for most users.</p>
+        <p>The API provides users with data ranging from historic US COVID-19 values, 
             single day values, individual state/territory values, and more. For this project, 
             we have extracted data from this API in order to give users information 
-            regarding the spread of the virus in specific locations across the US.
-        </p>
-    </div>
-</div>
-
+            regarding the spread of the virus in specific locations across the US.</p>
+    </section>
+</main>
 </body>
 </html>
+
+
