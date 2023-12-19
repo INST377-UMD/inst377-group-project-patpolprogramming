@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+<script src="project.js" defer></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.welcome {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 50px;
+  background-color: #ffeb3b;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  transition: background-color 0.3s;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #004c93;
+  text-align: center;
+  box-shadow: 0 2px 4px #00000050;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a.active, header nav ul li a:hover {
+  color: #ade2fb;
+}
+
+.welcome {
+  text-align: center;
+  padding: 50px;
+  background-color: #ffeb3b;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  transition: background-color 0.3s;
+}
+
+.welcome h1 {
+  color: #0056b3;
+  text-shadow: 2px 2px 4px #00000050;
+}
+
+.welcome button {
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px #00000050;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.welcome button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.welcome img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #00000050;
+}
+
+@media (max-width: 768px) {
+  .welcome button {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="home.html" class="active">Home Page</a></li>
+            <li><a href="about.html">About Page</a></li>
+            <li><a href="data.html">Search Data</a></li>
+            <li><a href="help.html">Help Page</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="welcome">
+        <h1>Welcome to the COVID-19 Tracking Interface</h1>
+        <button onclick="location.href='search.html'">Begin</button>
+        <img src="https://www.paho.org/sites/default/files/2023-08/covid-19-variants.jpg" alt="COVID-19 Image">
+    </section>
+</main>
+</body>
+</html>

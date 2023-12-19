@@ -1,1 +1,0 @@
-// Function to retrieve supabase database and add it to help page
