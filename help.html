@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COVID-19 Tracking Interface</title>
+<title>Help Page</title>
+<script src="INST377-Week10-JS.js" defer></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-.welcome {
+.mainContent {
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -112,7 +113,7 @@ font-size: 18px;
             <h1>Need Help?</h1>
             <h2>Please submit a query and we will get back to you shortly...</h2>
             <p>
-            <!-- Form to take user query requests -->
+            <!-- Form to take user query requests and retrieve user query data from created supabase database-->
               <div class="text-box">
                 <form onsubmit="addCustomer(); return false;">
                   <!-- First Name -->
