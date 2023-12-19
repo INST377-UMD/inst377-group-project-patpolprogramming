@@ -5,73 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>COVID-19 Tracking Interface</title>
 <style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-  header nav ul {
-    list-style-type: none;
-    background-color: #f8f9fa;
-    overflow: hidden;
-    padding: 0;
-    text-align: center;
-  }
+.welcome {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 50px;
+  background-color: #ffeb3b;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  transition: background-color 0.3s;
+}
 
-  header nav ul li {
-    display: inline;
-  }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-  header nav ul li a {
-    display: inline-block;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-  }
+header {
+  flex-shrink: 0;
+}
 
-  header nav ul li a.active, header nav ul li a:hover {
-    background-color: #ddd;
-  }
+main {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+}
 
-  .welcome {
-    text-align: center;
-    padding: 50px;
-    background-color: #ffeb3b;
-  }
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #004c93;
+  text-align: center;
+  box-shadow: 0 2px 4px #00000050;
+}
 
-  .welcome h1 {
-    margin-bottom: 20px;
-  }
+header nav ul li {
+  display: inline;
+}
 
-  .welcome button {
-    padding: 10px 20px;
-    margin-bottom: 20px;
-  }
+header nav ul li a {
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
 
-  .welcome img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-  }
+header nav ul li a.active, header nav ul li a:hover {
+  color: #ade2fb;
+}
+
+.welcome {
+  text-align: center;
+  padding: 50px;
+  background-color: #ffeb3b;
+  border-bottom: 5px solid #ffc107;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  transition: background-color 0.3s;
+}
+
+.welcome h1 {
+  color: #0056b3;
+  text-shadow: 2px 2px 4px #00000050;
+}
+
+.welcome img {
+  max-width: 40%;
+  
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #00000050;
+}
+
 </style>
 </head>
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="index.html" class="active">Home Page</a></li>
+            <li><a href="home.html">Home Page</a></li>
             <li><a href="about.html">About Page</a></li>
-            <li><a href="search.html">Search Data</a></li>
+            <li><a href="data.html" class="active">Search Data</a></li>
             <li><a href="help.html">Help Page</a></li>
         </ul>
     </nav>
 </header>
 <main>
     <section class="welcome">
-        <h1>Welcome to the COVID-19 Tracking Interface</h1>
-        <button onclick="location.href='search.html'">Begin</button>
-        <img src="https://drexel.edu/news/~/media/Drexel/Core-Site-Group/News/Images/COVID19image/covid19image_16x9.ashx" alt="COVID-19 Image">
+        <h1>COVID Tracking Data</h1>
     </section>
 </main>
 </body>
