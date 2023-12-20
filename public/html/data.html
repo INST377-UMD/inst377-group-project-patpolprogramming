@@ -142,12 +142,29 @@
   <script>
     function getStateData() {
       var stateCode = document.getElementById('stateCode').value;
-      var apiUrl = `https://api.covidtracking.com/v2/states/${stateCode.toLowerCase()}.json`;
+        console.log(stateCode);
+      var apiUrl = `https://api.covidtracking.com/v2/states/${stateCode.toLowerCase()}/daily.json`;
 
       fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        .then(response => {
+          return response.json()
+        })
+      .then(data => {
+      data.data.forEach(entry => {
+      const json_data = entry;
+      console.log(json_data);
+      // Number of cases
+      const numCases = entry.cases.totals.value;
+      console.log("Number of cases:", numCases);
+      // Number of deaths
+      const numDeaths = entry.outcomes.death.total.value;
+      console.log("Number of deaths:", numDeaths);
+    });
+  })
+  .catch(error => {
+    console.error("Error fetching data:", error);
+      // Do something with the meta object
+          document.getElementById('result').innerHTML = `Number of Cases: ${number_of_cases} Number of Deaths: ${number_of_deaths}`;
         })
         .catch(error => {
           console.error('Error fetching data:', error);
