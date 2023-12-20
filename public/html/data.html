@@ -4,116 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COVID-19 Tracking Interface</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    .welcome {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 50px;
-      background-color: #ffeb3b;
-      border-bottom: 5px solid #ffc107;
-      border-radius: 20px;
-      box-shadow: 0 4px 8px #00000050;
-      transition: background-color 0.3s;
-    }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
+header {
+  flex-shrink: 0;
+}
 
-    header {
-      flex-shrink: 0;
-    }
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #004c93;
+  text-align: center;
+  box-shadow: 0 2px 4px #00000050;
+}
 
-    main {
-      flex: 1 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to right, #56ccf2, #2f80ed);
-    }
+header nav ul li {
+  display: inline;
+}
 
-    header nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #004c93;
-      text-align: center;
-      box-shadow: 0 2px 4px #00000050;
-    }
+header nav ul li a {
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
 
-    header nav ul li {
-      display: inline;
-    }
+header nav ul li a.active, header nav ul li a:hover {
+  color: #ade2fb;
+}
 
-    header nav ul li a {
-      display: inline-block;
-      padding: 20px;
-      text-decoration: none;
-      color: white;
-      transition: color 0.3s ease;
-    }
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  background: linear-gradient(to right, #56ccf2, #2f80ed);
+}
 
-    header nav ul li a.active, header nav ul li a:hover {
-      color: #ade2fb;
-    }
+.search-container {
+  background-color: #ffeb3b;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px #00000050;
+  margin: 20px;
+  width: -webkit-fill-available;
+}
 
-    .welcome {
-      text-align: center;
-      padding: 50px;
-      background-color: #ffeb3b;
-      border-bottom: 5px solid #ffc107;
-      border-radius: 20px;
-      box-shadow: 0 4px 8px #00000050;
-      transition: background-color 0.3s;
-    }
+.search-box {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: calc(100% - 20px);
+}
 
-    .welcome h1 {
-      color: #0056b3;
-      text-shadow: 2px 2px 4px #00000050;
-    }
+button {
+  padding: 15px 30px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
 
-    .welcome img {
-      max-width: 40%;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px #00000050;
-    }
-    
-    form {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
 
-    label {
-      margin-bottom: 10px;
-    }
+.search-result {
+  margin-top: 20px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  padding: 20px;
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column; 
+  align-items: start; 
+  box-shadow: 0 4px 8px #00000050;
+}
 
-    input {
-      width: 200px;
-      padding: 5px;
-      margin-bottom: 10px;
-    }
 
-    button {
-      padding: 10px;
-      background-color: #004c93;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+.search-result-item {
+  margin-bottom: 10px; 
+}
 
+@media (max-width: 768px) {
+  .search-container, .search-result {
+    width: 90%;
+  }
+}
   </style>
 </head>
 <body>
@@ -136,38 +136,52 @@
         <button type="button" onclick="getStateData()">Get Data</button>
       </form>
 
+      <canvas id="covidChart"></canvas>
       <div id="result"></div>
     </section>
   </main>
   <script>
     function getStateData() {
       var stateCode = document.getElementById('stateCode').value;
-        console.log(stateCode);
       var apiUrl = `https://api.covidtracking.com/v2/states/${stateCode.toLowerCase()}/daily.json`;
 
       fetch(apiUrl)
         .then(response => {
           return response.json()
         })
-      .then(data => {
-      data.data.forEach(entry => {
-      const json_data = entry
-      console.log(json_data);
-      // Date
-      const dataDate = entry.date.value
-      console.log(dataDate)
-      // Number of cases
-      const numCases = entry.cases.total.value;
-      console.log("Number of cases:", numCases);
-      // Number of deaths
-      const numDeaths = entry.outcomes.death.total.value;
-      console.log("Number of deaths:", numDeaths);
-    });
-  })
-  .catch(error => {
-    console.error("Error fetching data:", error);
-      // Do something with the meta object
-          document.getElementById('result').innerHTML = `Number of Cases: ${number_of_cases} Number of Deaths: ${number_of_deaths}`;
+        .then(data => {
+          const dates = data.data.map(entry => new Date(entry.date).toLocaleDateString());
+          const cases = data.data.map(entry => entry.cases.total.value);
+          const deaths = data.data.map(entry => entry.outcomes.death.total.value);
+
+          var ctx = document.getElementById('covidChart').getContext('2d');
+            if (Chart.getChart("covidChart") != undefined) {
+                Chart.getChart("covidChart").destroy();
+            }
+          var covidChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: dates,
+                  datasets: [{
+                      label: 'Cases',
+                      data: cases,
+                      borderColor: 'rgb(75, 192, 192)',
+                      borderWidth: 1
+                  }, {
+                      label: 'Deaths',
+                      data: deaths,
+                      borderColor: 'rgb(255, 99, 132)',
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
         })
         .catch(error => {
           console.error('Error fetching data:', error);
