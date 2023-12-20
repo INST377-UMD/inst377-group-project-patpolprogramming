@@ -29,7 +29,7 @@ const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 //     }
 // })
 // POST, updates the supabase database with user data
-app.get('/users', async (red, res) => {
+app.get('/peanuts', async (red, res) => {
     console.log('getting User')
 
     const {data, error} = await supabase
