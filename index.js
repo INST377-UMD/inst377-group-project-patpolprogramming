@@ -14,17 +14,17 @@ app.get("/", (req, res) => {
 })
 
 // GET, which serves the about.html page  
-app.get("/about", (req, res) => {
-    res.sendFile("public\html\about.html", { root: __dirname })
+app.get("/about.html", (req, res) => {
+    res.sendFile("public/html/about.html", { root: __dirname })
 })
 
 // GET, which serves the data.html page
-app.get("/data", (req, res) => {
+app.get("/data.html", (req, res) => {
     res.sendFile("public/html/data.html", { root: __dirname })
 })
 
 // GET, which serves the help.html page
-app.get("/help", (req, res) => {
+app.get("/help.html", (req, res) => {
     res.sendFile("public/html/help.html", { root: __dirname })
 })
 
