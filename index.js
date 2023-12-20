@@ -9,28 +9,17 @@ app.use(bodyParser.json())
 // this allows us to use all files in the public folder
 app.use(express.static(__dirname + '/public'))
 
-// supabase DB for user information
+// supabase url and key 
 const supabaseUrl = 'https://lmomegzjxijkiqxhjjfz.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtb21lZ3pqeGlqa2lxeGhqamZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE1NTUzNTAsImV4cCI6MjAxNzEzMTM1MH0.5TKzmamlai1ZLgVJGcpSAMFVty7rJA7mdxeAf1K3ODM'
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
-// // GET, which serves to retrieve the user database 
-// app.get('/users', async (req, res) => {
-//     console.log(`Getting User`)
+app.get('/', (req, res) => {
+    res.sendFile('public/html/help.html', { root: __dirname })
+})
 
-//     const {data, error} = await supabase
-//         .from('User')
-//         .select();
-
-//     if(error) {
-//         console.log(error)
-//     } else if(data) {
-//         res.send(data)
-//     }
-// })
-// POST, updates the supabase database with user data
-app.get('/peanuts', async (red, res) => {
-    console.log('getting User')
+app.get('/users', async (req, res) => {
+    console.log(`getting user`)
 
     const {data, error} = await supabase
         .from('User')
@@ -39,8 +28,26 @@ app.get('/peanuts', async (red, res) => {
     if(error) {
         console.log(error)
     } else if(data) {
-            res.send(data)
-        }
+        res.send(data)
+    }
+})
+
+app.post('/', async (req, res) => {
+    console.log('adding user')
+
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("userEmail").value;
+    var state = document.getElementById("userState").value;
+    var city =document.getElementById("userCity").value;
+    var question = document.getElementById("userQuery").value;
+
+    const {data, error} = await supabase
+        .from('User')
+        .insert([
+            {'firstName': firstName, 'lastName': lastName, 'userEmail': email, 'userState': state, 'userCity': city, 'userQuery': question}
+        ])
+        .select();
     })
 
 // GET, which serves the index.html page
