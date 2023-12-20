@@ -1,52 +1,36 @@
-const express = require('express')
-var bodyParser = require('body-parser')
-const supabaseClient = require('@supabase/supabase-js')
+const bodyParser = require('body-parser')
+const express = require("express")
 const app = express()
-const port = 4000;
+const port = 4000
+
 app.use(bodyParser.json())
-app.use(express.static(__dirname + '/public'));
 
-const supabaseUrl = 'URL'
-const supabaseKey = 'API-KEY'
-const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
+// this allows us to use all files in the public folder
+app.use(express.static(__dirname + '/public'))
 
-app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: __dirname })
+// GET, which serves the index.html page
+app.get("/", (req, res) => {
+    res.sendFile("public/html/index.html", { root: __dirname })
 })
 
-app.get('/customers', async (req, res) => {
-    console.log(`Getting Customer`)
-
-    const {data, error} = await supabase
-        .from('Customer')
-        .select();
-
-    if(error) {
-        console.log(error)
-    } else if(data) {
-        res.send(data)
-    }
+// GET, which serves the about.html page  
+app.get("/about", (req, res) => {
+    res.sendFile("public\html\about.html", { root: __dirname })
 })
 
-app.post('/customer', async (req, res) => {
-    console.log('Adding Customer')
-
-    var firstName = req.body.firstName;
-    var lastName = req.body.lastName;
-    var state = req.body.state;
-
-    const {data, error} = await supabase
-        .from('Customer')
-        .insert([
-            {'cust_first_name': firstName, 'cust_last_name': lastName, 'cust_state': state}
-        ])
-        .select();
-
-    console.log(data)
-    res.header('Content-type', 'application/json')
-    res.send(data)
+// GET, which serves the data.html page
+app.get("/data", (req, res) => {
+    res.sendFile("public/html/data.html", { root: __dirname })
 })
 
-app.listen(port, () => {
-    console.log('APP IS ALIVEEEEEE')
+// GET, which serves the help.html page
+app.get("/help", (req, res) => {
+    res.sendFile("public/html/help.html", { root: __dirname })
 })
+
+// example GET endpoint, which returns the current date
+app.get("/current_date", (req, res) => {
+    res.send(new Date())
+})
+
+app.listen(port)
