@@ -1,18 +1,59 @@
-Group Project 13
-Group Member Names: < Andrew Liu, Milan Thapa, and Patrick Polglase > 
-Description: < Welcome to our COVID-19 Tracker. For this project, we 
-            decided to create an interface that allows users to search through data 
-            regarding COVID-19. The interface would then be able to search through an 
-            API and return results relating to the spread of COVID through communities. 
-            The results of the search vary from which regions were affected to 
-            calculating the number of infected individuals. Our proposed systems would 
-            solve the information problem by providing an intuitive interface for users 
-            to search data regarding the spread of COVID-19. Easily-sourced and readily 
-            available data regarding COVID-19 might be currently difficult to encounter 
-            for the common user. Our system would allow that data to be compiled and 
-            easily accessible through consulting an API and building a user interface that is comfortable for most users. The API provides users with data ranging from historic US COVID-19 values, single day values, individual state/territory values, and more. For this project, 
-            we have extracted data from this API in order to give users information 
-            regarding the spread of the virus in specific locations across the US. >
-Target Browsers: < We aim to further develop our application for iOS browsers and possibly branch out onto android devices. We currently have the application developed for common web  browsers such as google, firefox, edge, etc.>
-User Manual: < >
-Developer Manual: < >
+
+---
+
+# COVID-19 Tracking Interface
+
+## Description
+The COVID-19 Tracking Interface is a web application designed to provide an intuitive interface for users to search and access data regarding the spread of COVID-19. Utilizing data from the [COVID Tracking API](https://covidtracking.com/data/api/version-2), this application aims to present critical statistics such as infection rates and death counts in an easily accessible format, beneficial for health professionals and the general public.
+
+## Target Browsers
+- **Computers:** Compatible with modern web browsers like Chrome, Firefox, Safari, and Edge.
+- **Mobile Devices:** Optimized for iOS and Android browsers.
+
+## Links
+- [User Manual](link-to-user-manual)
+- [Developer Manual](link-to-developer-manual)
+
+---
+
+# Developer Manual
+
+## Audience
+This document is intended for future developers who will work on the COVID-19 Tracking Interface. It assumes a general knowledge of web applications but no prior understanding of this system's design.
+
+## Installation and Setup
+1. **Clone the Repository:**
+   ```bash
+   git clone [repository-url]
+   ```
+2. **Install Dependencies:**
+   Navigate to the project directory and run:
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+- **Start the Server:**
+  ```bash
+  npm start
+  ```
+  The application will be available at `http://localhost:[port-number]`.
+
+## Running Tests
+- Execute tests using:
+  ```bash
+  npm test
+  ```
+
+## API Endpoints
+- **GET `/api/data`**: Fetches COVID-19 data.
+- **POST `/api/submit`**: Submits user queries.
+- Additional endpoints can be found in the `routes` directory.
+
+## Known Bugs and Future Development
+- **Known Bugs:**
+  - 
+- **Future Development:**
+  - 
+
+---
