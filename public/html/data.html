@@ -151,10 +151,13 @@
         })
       .then(data => {
       data.data.forEach(entry => {
-      const json_data = entry;
+      const json_data = entry
       console.log(json_data);
+      // Date
+      const dataDate = entry.date.value
+      console.log(dataDate)
       // Number of cases
-      const numCases = entry.cases.totals.value;
+      const numCases = entry.cases.total.value;
       console.log("Number of cases:", numCases);
       // Number of deaths
       const numDeaths = entry.outcomes.death.total.value;
