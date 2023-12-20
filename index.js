@@ -9,8 +9,8 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'))
 
 // GET, which serves the index.html page
-app.get("/index.html", (req, res) => {
-    res.sendFile("public/html/index.html", { root: __dirname })
+app.get("/home.html", (req, res) => {
+    res.sendFile("public/html/home.html", { root: __dirname })
 })
 
 // GET, which serves the about.html page  
