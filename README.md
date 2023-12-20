@@ -54,6 +54,7 @@ This document is intended for future developers who will work on the COVID-19 Tr
 - **Known Bugs:**
   - 
 - **Future Development:**
-  - 
+  - We will market this towards IOS platform to be used with Apple Health.
+  - Improvements will be made to ensure that the mapping of cases accurately corresponds to specific areas.
 
 ---
